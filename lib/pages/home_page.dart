@@ -9,7 +9,6 @@ import 'package:velocity_x/velocity_x.dart';
 
 import 'package:flutter_catalog/models/catalog.dart';
 
-import '../widgets/themes.dart';
 import '../widgets/home_widgets/catalog_header.dart';
 import '../widgets/home_widgets/catalog_list.dart';
 
@@ -28,7 +27,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   loadData() async {
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 2));
     var catalogJson = await rootBundle.loadString("assets/files/catalog.json");
     var decodedData = jsonDecode(catalogJson);
     var productsData = decodedData["products"];
@@ -49,7 +48,7 @@ class _HomePageState extends State<HomePage> {
           Navigator.pushNamed(context, MyRoutes.cartRoute);
         },
         backgroundColor: context.theme.buttonColor,
-        child: Icon(
+        child: const Icon(
           CupertinoIcons.cart,
           color: Colors.white,
         ),
@@ -60,11 +59,11 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CatalogHeader(),
+              const CatalogHeader(),
               if (CatalogModel.items != null && CatalogModel.items.isNotEmpty)
-                CatalogList().py16().expand()
+                const CatalogList().py16().expand()
               else
-                CircularProgressIndicator().centered().expand()
+                const CircularProgressIndicator().centered().expand()
             ],
           ),
         ),

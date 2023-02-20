@@ -97,11 +97,11 @@ class __AddToCartState extends State<_AddToCart> {
     return ElevatedButton(
         onPressed: () {
           isAdded = isAdded.toggle();
-          final _catalog = CatalogModel();
-          final _cart = CartModel();
+          final catalog = CatalogModel();
+          final cart = CartModel();
 
-          _cart.catalog = _catalog;
-          _cart.add(widget.catalog);
+          cart.catalog = catalog;
+          cart.add(widget.catalog);
           setState(() {});
         },
         style: ButtonStyle(
